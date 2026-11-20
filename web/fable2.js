@@ -20,8 +20,7 @@ function setValue(name, number, floating = false) { const node = value(name); if
 function input(id, label, value, min = 0, max = 255) { const wrapper = document.createElement('label'); wrapper.textContent = label; const field = document.createElement('input'); field.type = 'number'; field.id = id; field.min = min; field.max = max; field.value = value; wrapper.append(field); return wrapper; }
 function download() { const serialized = new XMLSerializer().serializeToString(documentXml); const xml = new TextEncoder().encode(serialized); const output = new Uint8Array(4 + xml.length); new DataView(output.buffer).setUint32(0, xml.length, true); output.set(xml, 4); const link = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([output], { type: 'application/octet-stream' })), download: 'herosave.bin' }); link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000); }
 
-try {
-  if (!heroBytes) throw new Error('Import a Fable II package first.');
+if (heroBytes) try {
   documentXml = readXml(fromBase64(heroBytes));
   $('#gold').value = getNumber('Money'); $('#renown').value = getNumber('Renown'); $('#morality').value = getNumber('Morality'); $('#purity').value = getNumber('Purity');
   abilities.forEach((name, index) => $('#abilities').append(input(`ability-${index + 1}`, name, getNumber(`HeroAbility${index + 1}`))));
