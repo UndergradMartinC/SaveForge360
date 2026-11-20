@@ -1,0 +1,9 @@
+{
+  "id": "mcla",
+  "name": "Midnight Club: Los Angeles",
+  "titleIds": ["545407F8"],
+  "saveFiles": ["mc4.sav"],
+  "supportedVersions": ["Xbox 360 Complete Edition"],
+  "status": "preview",
+  "format": "big-endian section container"
+}

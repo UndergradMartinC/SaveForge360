@@ -1,0 +1,9 @@
+{
+  "id": "fable2",
+  "name": "Fable II",
+  "titleIds": ["4D5307F1"],
+  "saveFiles": ["herosave.bin", "Fable2PubInfo.xml"],
+  "supportedVersions": ["Xbox 360"],
+  "status": "preview",
+  "format": "length-prefixed hero-save XML"
+}

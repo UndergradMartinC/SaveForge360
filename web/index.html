@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SaveForge360</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">LOCAL SAVE WORKBENCH · PREVIEW</p>
+      <h1>SaveForge360</h1>
+      <p class="lede">Import an Xbox 360 save package. Your file stays on this Mac; this preview does not use FTP, cloud storage, or console access.</p>
+      <section class="panel">
+        <label class="drop" for="save-file">
+          <span>Choose a CON, LIVE, or PIRS save package</span>
+          <small>Read-only import · max 32 MB</small>
+          <input id="save-file" type="file">
+        </label>
+        <p id="status" role="status">Waiting for a save package.</p>
+      </section>
+      <section id="result" class="panel hidden" aria-live="polite">
+        <h2 id="package-name">Package</h2>
+        <p id="module-status"></p>
+        <button id="open-mcla" class="hidden">Open Midnight Club: LA editor</button>
+        <button id="open-fable2" class="hidden">Open Fable II editor</button>
+        <details>
+          <summary>Files in package</summary>
+          <ul id="files"></ul>
+        </details>
+      </section>
+      <section class="panel">
+        <p class="eyebrow">AVAILABLE EDITORS</p>
+        <h2>Browse supported save data</h2>
+        <a class="editor-card" href="/mcla.html"><strong>Midnight Club: Los Angeles</strong><span>Wallet · career progression · garage · upgrades · statistics</span><small>Browse fields without importing a save →</small></a>
+        <a class="editor-card" href="/fable2.html"><strong>Fable II</strong><span>Gold · renown · morality · purity · hero abilities</span><small>First source-backed port · browse fields →</small></a>
+      </section>
+      <section class="notes">
+        <h2>What works in this preview</h2>
+        <p>STFS package inspection and MCLA inner-save extraction. The MCLA editor changes verified save fields and exports an edited inner file. Package replacement, rehash, and resign are in active development.</p>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
