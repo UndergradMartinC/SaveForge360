@@ -4,6 +4,6 @@
   "titleIds": ["4D5307F1"],
   "saveFiles": ["herosave.bin", "Fable2PubInfo.xml"],
   "supportedVersions": ["Xbox 360"],
-  "status": "preview",
+  "status": "untested",
   "format": "length-prefixed hero-save XML"
 }
