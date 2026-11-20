@@ -1,6 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const abilities = ['Brutal Styles', 'Physique', 'Toughness', 'Dextrous Styles', 'Accuracy', 'Speed', 'Shock', 'Inferno', 'Time Control', 'Blades', 'Vortex', 'Chaos', 'Force Push', 'Raise Dead'];
-const heroBytes = sessionStorage.getItem('saveforge:fable2:hero');
+const heroBytes = SaveForgeModules.loadImport('fable2')?.heroSave;
 let documentXml;
 
 function fromBase64(value) { return Uint8Array.from(atob(value), char => char.charCodeAt(0)); }

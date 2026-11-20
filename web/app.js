@@ -23,13 +23,12 @@ fileInput.addEventListener('change', async () => {
       return item;
     }));
     if (inspection.module?.id === 'mcla') {
-      sessionStorage.setItem('saveforge:mcla', inspection.module.innerSave);
+      SaveForgeModules.saveImport(inspection.module);
       moduleStatus.textContent = 'Midnight Club: Los Angeles detected. Its inner mc4.sav is ready to edit.';
       openMcla.classList.remove('hidden');
       openFable2.classList.add('hidden');
     } else if (inspection.module?.id === 'fable2') {
-      sessionStorage.setItem('saveforge:fable2:hero', inspection.module.heroSave);
-      sessionStorage.setItem('saveforge:fable2:public', inspection.module.publicInfo);
+      SaveForgeModules.saveImport(inspection.module);
       moduleStatus.textContent = 'Fable II detected. Its hero and public-info saves are ready to inspect.';
       openFable2.classList.remove('hidden');
       openMcla.classList.add('hidden');
