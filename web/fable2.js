@@ -3,6 +3,20 @@ const abilities = ['Brutal Styles', 'Physique', 'Toughness', 'Dextrous Styles', 
 const heroBytes = SaveForgeModules.loadImport('fable2')?.heroSave;
 let documentXml;
 
+const browseDetails = {
+  hero: { title: 'Hero fields', fields: ['Gold — 0 to 999,999,999', 'Renown — 0 to 2,147,483,647', 'Morality — -1,000 to 1,000', 'Purity — -1,000 to 1,000'], actions: 'Quick actions: Max gold, Good, Neutral, and Bad.' },
+  abilities: { title: 'Ability fields', fields: abilities, actions: 'Quick action: Max all abilities.' }
+};
+document.querySelectorAll('[data-browse]').forEach((button) => button.addEventListener('click', () => {
+  const detail = browseDetails[button.dataset.browse];
+  const panel = $('#browse-detail');
+  panel.replaceChildren();
+  const title = document.createElement('h2'); title.textContent = detail.title;
+  const list = document.createElement('ul'); detail.fields.forEach((field) => { const item = document.createElement('li'); item.textContent = field; list.append(item); });
+  const actions = document.createElement('p'); actions.className = 'muted'; actions.textContent = detail.actions;
+  panel.append(title, list, actions); panel.classList.remove('hidden'); panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}));
+
 function fromBase64(value) { return Uint8Array.from(atob(value), char => char.charCodeAt(0)); }
 function toBase64(bytes) { return btoa(String.fromCharCode(...bytes)); }
 function readXml(bytes) {
